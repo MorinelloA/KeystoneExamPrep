@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+    <bean id="daoManager" class="com.keystoneexamprep.model.business.manager.DAOManager">
+        <property name="registerAcctService" ref="registerAcctService" />
+        <property name="authenticateAcctService" ref="authenticateAcctService" />			
+    </bean>
+    
+    <bean id="questionManager" class="com.keystoneexamprep.model.business.manager.QuestionManager">
+        <property name="checkAnswerService" ref="checkAnswerService" />
+        <property name="generateQuestionService" ref="generateQuestionService" />
+        <property name="storeQAService" ref="storeQAService" />
+        <property name="retrieveQuestionService" ref="retrieveQuestionService" />
+        <property name="saveQuestionService" ref="saveQuestionService" />		
+    </bean>
+
+    <bean id="registerAcctService" class="com.keystoneexamprep.model.services.registeracctservice.RegisterAcctServiceJDBCImpl">
+        <property name="keystoneExamPrepDao" ref="keystoneExamPrepDao" />
+    </bean>
+		
+    <bean id="authenticateAcctService" class="com.keystoneexamprep.model.services.authenticateacctservice.AuthenticateAcctServiceJDBCImpl" >
+        <property name="keystoneExamPrepDao" ref="keystoneExamPrepDao" />
+    </bean>
+	
+    <bean id="checkAnswerService" class="com.keystoneexamprep.model.services.checkanswerservice.CheckAnswerServiceImpl" >
+    </bean>   
+    
+    <bean id="generateQuestionService" class="com.keystoneexamprep.model.services.generatequestionservice.GenerateQuestionServiceImpl" >
+    </bean>   
+         
+    <bean id="storeQAService" class="com.keystoneexamprep.model.services.storeqaservice.StoreQAServiceImpl" >
+    </bean>  
+    
+    <bean id="retrieveQuestionService" class="com.keystoneexamprep.model.services.retrieveQuestion.RetrieveQuestionServiceImpl" >
+    </bean> 
+    
+    <bean id="saveQuestionService" class="com.keystoneexamprep.model.services.savequestionservice.SaveQuestionServiceImpl" >
+    </bean>       
+
+    <bean id="keystoneExamPrepDao" class="com.keystoneexamprep.model.dao.jdbc.KeystoneExamPrepJDBCDaoImpl" >
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/keystoneexamprepschema" />
+        <property name="jdbcUser" value="root" />
+        <property name="jdbcPassword" value="password" />
+    </bean>
+		
+	
+</beans>

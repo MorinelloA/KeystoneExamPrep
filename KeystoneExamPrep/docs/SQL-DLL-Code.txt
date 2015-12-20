@@ -1,0 +1,13 @@
+CREATE DATABASE `keystoneexamprepschema` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+CREATE TABLE `student` (
+  `lastName` varchar(40) DEFAULT NULL,
+  `firstName` varchar(40) DEFAULT NULL,
+  `birthMonth` varchar(15) DEFAULT NULL,
+  `birthDate` int(11) DEFAULT NULL,
+  `birthYear` int(11) DEFAULT NULL,
+  `emailAddress` varchar(50) NOT NULL,
+  `password` varchar(35) DEFAULT NULL,
+  `phoneNumber` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`emailAddress`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
